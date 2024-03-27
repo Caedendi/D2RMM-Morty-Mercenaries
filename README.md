@@ -2,7 +2,7 @@
 
 D2RMM port of the [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373).
 
-Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions. _"I can't use that"_ & _"I can't use that yet"_ are default. 
+Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.
 
 
 ## Table of Contents
@@ -30,6 +30,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 - Feature parity with Morty Mercenaries by Caleb & Friends
 - Added option for custom merc name
+- Added new sound effects and text for _"I can't use that"_ & _"I can't use that yet"_
 
 
 ## How to Install
@@ -44,7 +45,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 - [x] Feature parity with the original mod
 - [x] Add option for custom mercenary name
-- [ ] Find and implement new sound effects for _"I can't use that"_ & _"I can't use that yet"_.
+- [x] Find and implement new sound effects for _"I can't use that"_ & _"I can't use that yet"_.
 
 
 ## Recommended Mods
@@ -56,7 +57,7 @@ A list of the other mods I have created can be found [there](https://github.com/
 
 ## Credits
 
-- [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) ([Discord](https://discord.gg/X8RNYUTcdR)) for creating [the original mod](https://www.nexusmods.com/diablo2resurrected/mods/476)
+- [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) ([Discord](https://discord.gg/X8RNYUTcdR)) for creating [the original mod](https://www.nexusmods.com/diablo2resurrected/mods/476) and ripping the new sound effect
 - [olegbl](https://github.com/olegbl) for creating [D2RMM](https://www.nexusmods.com/diablo2resurrected/mods/169)
 
 

@@ -64,6 +64,17 @@ class ModConstants {
       "male_illputthattogooduse2", 
       "male_illputthattogooduse3",
     ],
+    textCantEquip: "Oh, Rick, something's not right.",
+    keysCantEquip: [
+      "female_icantusethat",
+      "female_icantusethatyet",
+      "male_icantusethat1",
+      "male_icantusethat2",
+      "male_icantusethat3",
+      "male_icantusethatyet1",
+      "male_icantusethatyet2",
+      "male_icantusethatyet3",
+    ],
   };
 }
 
@@ -120,9 +131,9 @@ class MortyMercenariesMod {
     // - The Jerrick Trap - Morty: I'm telling you, man, you're making a big mistake here. 
     // - Rickfending Your Mort - Morty: Nope. I'm good. 
 
-    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_LOCAL,  FileConstants.PATH_GAME_SFX_LOCAL, true); // copy <mod folder>\sfx_local  contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local\sfx\common\hireables
+    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_LOCAL,  FileConstants.PATH_GAME_SFX_LOCAL,  true); // copy <mod folder>\sfx_local  contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local\sfx\common\hireables
     D2RMM.copyFile(FileConstants.PATH_MOD_SFX_HD,     FileConstants.PATH_GAME_SFX_HD,     true); // copy <mod folder>\sfx_hd     contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\sfx\monster
-    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_GLOBAL, FileConstants.PATH_GAME_SFX_GLOBAL,  true); // copy <mod folder>\sfx_global contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\global\sfx\monster
+    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_GLOBAL, FileConstants.PATH_GAME_SFX_GLOBAL, true); // copy <mod folder>\sfx_global contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\global\sfx\monster
   }
 
   replaceSubtitles() {
@@ -130,33 +141,30 @@ class MortyMercenariesMod {
     let file = D2RMM.readJson(path);
 
     file.forEach(entry => {
-      if (ModConstants.subtitles.keysNewEquip.includes(entry[FileConstants.jsonProperties.key])) {
-        this.replaceSubtitle(entry, ModConstants.subtitles.textNewEquip);
-        return;
-      }
-      if (ModConstants.subtitles.keysPotion.includes(entry[FileConstants.jsonProperties.key])) {
-        this.replaceSubtitle(entry, ModConstants.subtitles.textPotion);
-        return;
-      }
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysPotion, ModConstants.subtitles.textPotion);
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysNewEquip, ModConstants.subtitles.textNewEquip);
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysCantEquip, ModConstants.subtitles.textCantEquip);
     });
 
     D2RMM.writeJson(path, file);
   }
 
-  replaceSubtitle(entry, newText) {
-    entry[FileConstants.jsonProperties.enus] = newText;
-    entry[FileConstants.jsonProperties.zhtw] = newText;
-    entry[FileConstants.jsonProperties.dede] = newText;
-    entry[FileConstants.jsonProperties.eses] = newText;
-    entry[FileConstants.jsonProperties.frfr] = newText;
-    entry[FileConstants.jsonProperties.itit] = newText;
-    entry[FileConstants.jsonProperties.kokr] = newText;
-    entry[FileConstants.jsonProperties.plpl] = newText;
-    entry[FileConstants.jsonProperties.esmx] = newText;
-    entry[FileConstants.jsonProperties.jajp] = newText;
-    entry[FileConstants.jsonProperties.ptbr] = newText;
-    entry[FileConstants.jsonProperties.ruru] = newText;
-    entry[FileConstants.jsonProperties.zhcn] = newText;
+  replaceSubtitle(entry, keys, newText) {
+    if (keys.includes(entry[FileConstants.jsonProperties.key])) { // if entry.Key matches with one of the entries in keys
+      entry[FileConstants.jsonProperties.enus] = newText;
+      entry[FileConstants.jsonProperties.zhtw] = newText;
+      entry[FileConstants.jsonProperties.dede] = newText;
+      entry[FileConstants.jsonProperties.eses] = newText;
+      entry[FileConstants.jsonProperties.frfr] = newText;
+      entry[FileConstants.jsonProperties.itit] = newText;
+      entry[FileConstants.jsonProperties.kokr] = newText;
+      entry[FileConstants.jsonProperties.plpl] = newText;
+      entry[FileConstants.jsonProperties.esmx] = newText;
+      entry[FileConstants.jsonProperties.jajp] = newText;
+      entry[FileConstants.jsonProperties.ptbr] = newText;
+      entry[FileConstants.jsonProperties.ruru] = newText;
+      entry[FileConstants.jsonProperties.zhcn] = newText;
+    }
   }
 }
 
