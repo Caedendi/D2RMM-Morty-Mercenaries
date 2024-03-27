@@ -1,12 +1,6 @@
-//===============//
-//   Constants   //
-//===============//
-
 class FileConstants {
-  // extensions
   static FILE_EXTENSION_JSON = ".json";
 
-  // localized jsons
   static PATH_LOCAL_LNG_STRINGS = "local\\lng\\strings\\";
   static FILE_VO_JSON           = `${this.PATH_LOCAL_LNG_STRINGS}vo${this.FILE_EXTENSION_JSON}`;
   static FILE_MERCENARIES_JSON  = `${this.PATH_LOCAL_LNG_STRINGS}mercenaries${this.FILE_EXTENSION_JSON}`;
@@ -119,18 +113,10 @@ class MortyMercenariesMod {
   }
 
   replaceSprites() {
-    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES, FileConstants.PATH_GAME_SPRITES, true); // copy <mod folder>\sprites contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
+    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES,    FileConstants.PATH_GAME_SPRITES,    true); // copy <mod folder>\sprites    contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
   }
 
   replaceSfx() {
-    // TODO: "I can't use that (yet)" contenders:
-    // - Lawnmower Dog - Morty: Oh, man, Rick, this is pretty weird.
-    // - Meeseeks and Destroy - Morty: I can’t do it, Rick! They’re my parents and sister! 
-    // - Rick Potion #9 - Morty: Heck yeah! Thank you, Grandpa Rick! (walks to the door, but thinks about it and looks back) Hey there's no dangers or anything or side effects, right?
-    // - Rick Potion #9 - Morty: Oh, Rick, something's not right. 
-    // - The Jerrick Trap - Morty: I'm telling you, man, you're making a big mistake here. 
-    // - Rickfending Your Mort - Morty: Nope. I'm good. 
-
     D2RMM.copyFile(FileConstants.PATH_MOD_SFX_LOCAL,  FileConstants.PATH_GAME_SFX_LOCAL,  true); // copy <mod folder>\sfx_local  contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local\sfx\common\hireables
     D2RMM.copyFile(FileConstants.PATH_MOD_SFX_HD,     FileConstants.PATH_GAME_SFX_HD,     true); // copy <mod folder>\sfx_hd     contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\sfx\monster
     D2RMM.copyFile(FileConstants.PATH_MOD_SFX_GLOBAL, FileConstants.PATH_GAME_SFX_GLOBAL, true); // copy <mod folder>\sfx_global contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\global\sfx\monster
@@ -141,9 +127,9 @@ class MortyMercenariesMod {
     let file = D2RMM.readJson(path);
 
     file.forEach(entry => {
-      this.replaceSubtitle(entry, ModConstants.subtitles.keysPotion, ModConstants.subtitles.textPotion);
-      this.replaceSubtitle(entry, ModConstants.subtitles.keysNewEquip, ModConstants.subtitles.textNewEquip);
-      this.replaceSubtitle(entry, ModConstants.subtitles.keysCantEquip, ModConstants.subtitles.textCantEquip);
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysPotion, ModConstants.subtitles.textPotion);       // replace "Thanks." / "Thank you."     with Morty's "Thanks."
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysNewEquip, ModConstants.subtitles.textNewEquip);   // replace "I'll put that to good use." with Morty's "Thanks, Rick."
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysCantEquip, ModConstants.subtitles.textCantEquip); // replace "I can't use that (yet)."    with Morty's "Oh, Rick, something's not right."
     });
 
     D2RMM.writeJson(path, file);
