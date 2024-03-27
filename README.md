@@ -1,28 +1,30 @@
 # Morty Mercenaries for D2RMM
-D2RMM port of the Morty Mercenaries mod by Caleb and Friends.
+
+D2RMM port of the [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373).
 
 Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions. _"I can't use that"_ & _"I can't use that yet"_ are default. 
 
 
-Table of Contents
+## Table of Contents
 
-- [Morty Mercenaries for D2RMM](#morty-mercenaries-for-d2rmm)
-  - [Credits](#credits)
+- [Demos](#demos)
+- [Changelog](#changelog)
+  - [1.0.0](#100)
+- [How to Install](#how-to-install)
+- [Roadmap](#roadmap)
+- [Recommended Mods](#recommended-mods)
+- [Credits](#credits)
+- [License/Permissions](#licensepermissions)
 
 
-## Screenshots
+## Demos
 
-TODO
-
-<p float="left">
-  <img src="https://i.imgur.com/mxQB5wx.png" alt="01_pots_scrolls_gold" width="49%">
-  <img src="https://i.imgur.com/63Oygn8.png" alt="02_gems_keys_essences" width="49%">
-</p>
+1. [Merc potion SFX replacement](https://www.youtube.com/watch?v=EHwpkw-BLDA)
+2. [Merc equipment SFX replacement](https://www.youtube.com/watch?v=aHRrSZv4QYI)
+3. [Damage and dying SFX replacement](https://www.youtube.com/watch?v=gEywagc1m1g)
 
 
 ## Changelog
-
-TODO
 
 ### 1.0.0
 
@@ -45,18 +47,16 @@ TODO
 - [ ] Find and implement new sound effects for _"I can't use that"_ & _"I can't use that yet"_.
 
 
-## Recommended
+## Recommended Mods
 
-TODO. Link to my personal GitHub mods page.
+Visit [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-Lists#todo) for the list of D2RMM mods that I use, you might like some of 'em! 
 
-Visit [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-Lists) for the list of D2RMM mods that I use and recommend you take a look at.
-
-Other mods I created can be found on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files) or on the page above.
+A list of the other mods I have created can be found [there](https://github.com/Caedendi/D2RMM-Mod-Lists#todo) too, as well as directly on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files).
 
 
 ## Credits
 
-- Caleb & Friends ([Discord](https://discord.gg/X8RNYUTcdR))
+- [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) ([Discord](https://discord.gg/X8RNYUTcdR)) for creating [the original mod](https://www.nexusmods.com/diablo2resurrected/mods/476)
 - [olegbl](https://github.com/olegbl) for creating [D2RMM](https://www.nexusmods.com/diablo2resurrected/mods/169)
 
 
