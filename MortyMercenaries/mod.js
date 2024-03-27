@@ -49,12 +49,7 @@ class MercNameConstants {
 }
 
 class SubtitlesConstants {
-  static keysNewEquip = [
-    "female_illputthattogooduse", 
-    "male_illputthattogooduse1", 
-    "male_illputthattogooduse2", 
-    "male_illputthattogooduse3",
-  ];
+  static textPotion   = "Thanks."
   static keysPotion = [
     "female_thankyou", 
     "male_thankyou1", 
@@ -62,7 +57,12 @@ class SubtitlesConstants {
     "male_thankyou3",
   ];
   static textNewEquip = "Thanks, Rick."
-  static textPotion     = "Thanks."
+  static keysNewEquip = [
+    "female_illputthattogooduse", 
+    "male_illputthattogooduse1", 
+    "male_illputthattogooduse2", 
+    "male_illputthattogooduse3",
+  ];
 }
 
 class MortyMercenariesMod {
