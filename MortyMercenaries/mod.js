@@ -48,6 +48,23 @@ class MercNameConstants {
   static cyrillic = "Морти";
 }
 
+class SubtitlesConstants {
+  static keysNewEquip = [
+    "female_illputthattogooduse", 
+    "male_illputthattogooduse1", 
+    "male_illputthattogooduse2", 
+    "male_illputthattogooduse3",
+  ];
+  static keysPotion = [
+    "female_thankyou", 
+    "male_thankyou1", 
+    "male_thankyou2", 
+    "male_thankyou3",
+  ];
+  static textNewEquip = "Thanks, Rick."
+  static textPotion     = "Thanks."
+}
+
 class MortyMercenariesMod {
   build() {
     if (config.shouldRenameMercenary) {
@@ -110,9 +127,34 @@ class MortyMercenariesMod {
     let path = FileConstants.FILE_VO_JSON;
     let file = D2RMM.readJson(path);
 
-    // do stuff in vo.json
+    file.forEach(entry => {
+      if (SubtitlesConstants.keysNewEquip.includes(entry.key)) {
+        this.replaceSubtitle(entry, SubtitlesConstants.textNewEquip);
+        return;
+      }
+      if (SubtitlesConstants.keysPotion.includes(entry.key)) {
+        this.replaceSubtitle(entry, SubtitlesConstants.textPotion);
+        return;
+      }
+    });
 
     D2RMM.writeJson(path, file);
+  }
+
+  replaceSubtitle(entry, newText) {
+    entry[FileConstants.jsonProperties.enus] = newText;
+    entry[FileConstants.jsonProperties.zhtw] = newText;
+    entry[FileConstants.jsonProperties.dede] = newText;
+    entry[FileConstants.jsonProperties.eses] = newText;
+    entry[FileConstants.jsonProperties.frfr] = newText;
+    entry[FileConstants.jsonProperties.itit] = newText;
+    entry[FileConstants.jsonProperties.kokr] = newText;
+    entry[FileConstants.jsonProperties.plpl] = newText;
+    entry[FileConstants.jsonProperties.esmx] = newText;
+    entry[FileConstants.jsonProperties.jajp] = newText;
+    entry[FileConstants.jsonProperties.ptbr] = newText;
+    entry[FileConstants.jsonProperties.ruru] = newText;
+    entry[FileConstants.jsonProperties.zhcn] = newText;
   }
 }
 
