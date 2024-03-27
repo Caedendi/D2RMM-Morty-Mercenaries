@@ -40,29 +40,31 @@ class FileConstants {
   };
 }
   
-class MercNameConstants {
-  static latin = "Morty";
-  static chinese = "莫蒂";
-  static korean = "모티";
-  static japanese = "モーティ";
-  static cyrillic = "Морти";
-}
+class ModConstants {
+  static mercNames = {
+    latin:    "Morty",
+    chinese:  "莫蒂",
+    korean:   "모티",
+    japanese: "モーティ",
+    cyrillic: "Морти",
+  };
 
-class SubtitlesConstants {
-  static textPotion   = "Thanks."
-  static keysPotion = [
-    "female_thankyou", 
-    "male_thankyou1", 
-    "male_thankyou2", 
-    "male_thankyou3",
-  ];
-  static textNewEquip = "Thanks, Rick."
-  static keysNewEquip = [
-    "female_illputthattogooduse", 
-    "male_illputthattogooduse1", 
-    "male_illputthattogooduse2", 
-    "male_illputthattogooduse3",
-  ];
+  static subtitles = {
+    textPotion: "Thanks.",
+    keysPotion: [
+      "female_thankyou", 
+      "male_thankyou1", 
+      "male_thankyou2", 
+      "male_thankyou3",
+    ],
+    textNewEquip: "Thanks, Rick.",
+    keysNewEquip: [
+      "female_illputthattogooduse", 
+      "male_illputthattogooduse1", 
+      "male_illputthattogooduse2", 
+      "male_illputthattogooduse3",
+    ],
+  };
 }
 
 class MortyMercenariesMod {
@@ -87,19 +89,19 @@ class MortyMercenariesMod {
 
     file.forEach(entry => {
       let shouldUseCustomName = (config.mercenaryName != null && config.mercenaryName !== "");
-      entry[FileConstants.jsonProperties.enus] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.zhtw] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.chinese;
-      entry[FileConstants.jsonProperties.dede] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.eses] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.frfr] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.itit] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.kokr] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.korean;
-      entry[FileConstants.jsonProperties.plpl] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.esmx] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.jajp] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.japanese;
-      entry[FileConstants.jsonProperties.ptbr] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.latin;
-      entry[FileConstants.jsonProperties.ruru] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.cyrillic;
-      entry[FileConstants.jsonProperties.zhcn] = shouldUseCustomName ? config.mercenaryName : MercNameConstants.chinese;
+      entry[FileConstants.jsonProperties.enus] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.zhtw] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
+      entry[FileConstants.jsonProperties.dede] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.eses] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.frfr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.itit] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.kokr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.korean;
+      entry[FileConstants.jsonProperties.plpl] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.esmx] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.jajp] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.japanese;
+      entry[FileConstants.jsonProperties.ptbr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.ruru] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.cyrillic;
+      entry[FileConstants.jsonProperties.zhcn] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
     });
     
     D2RMM.writeJson(path, file);
@@ -128,12 +130,12 @@ class MortyMercenariesMod {
     let file = D2RMM.readJson(path);
 
     file.forEach(entry => {
-      if (SubtitlesConstants.keysNewEquip.includes(entry[FileConstants.jsonProperties.key])) {
-        this.replaceSubtitle(entry, SubtitlesConstants.textNewEquip);
+      if (ModConstants.subtitles.keysNewEquip.includes(entry[FileConstants.jsonProperties.key])) {
+        this.replaceSubtitle(entry, ModConstants.subtitles.textNewEquip);
         return;
       }
-      if (SubtitlesConstants.keysPotion.includes(entry[FileConstants.jsonProperties.key])) {
-        this.replaceSubtitle(entry, SubtitlesConstants.textPotion);
+      if (ModConstants.subtitles.keysPotion.includes(entry[FileConstants.jsonProperties.key])) {
+        this.replaceSubtitle(entry, ModConstants.subtitles.textPotion);
         return;
       }
     });
