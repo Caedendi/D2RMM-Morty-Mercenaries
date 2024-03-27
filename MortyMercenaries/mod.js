@@ -11,10 +11,10 @@ class FileConstants {
   static FILE_VO_JSON           = `${this.PATH_LOCAL_LNG_STRINGS}vo${this.FILE_EXTENSION_JSON}`;
   static FILE_MERCENARIES_JSON  = `${this.PATH_LOCAL_LNG_STRINGS}mercenaries${this.FILE_EXTENSION_JSON}`;
 
-  static PATH_MOD_SFX_GLOBAL = "sfx_global";
-  static PATH_MOD_SFX_HD     = "sfx_hd";
-  static PATH_MOD_SFX_LOCAL  = "sfx_local";
-  static PATH_MOD_SPRITES    = "sprites";
+  static PATH_MOD_SFX_GLOBAL = "data\\sfx_global";
+  static PATH_MOD_SFX_HD     = "data\\sfx_hd";
+  static PATH_MOD_SFX_LOCAL  = "data\\sfx_local";
+  static PATH_MOD_SPRITES    = "data\\sprites";
 
   static PATH_GAME_SFX_GLOBAL = "local\\sfx\\common\\hireables";
   static PATH_GAME_SFX_HD     = "hd\\global\\sfx\\monster";
