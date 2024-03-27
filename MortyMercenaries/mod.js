@@ -16,9 +16,9 @@ class FileConstants {
   static PATH_MOD_SFX_LOCAL  = "data\\sfx_local";
   static PATH_MOD_SPRITES    = "data\\sprites";
 
-  static PATH_GAME_SFX_GLOBAL = "local\\sfx\\common\\hireables";
+  static PATH_GAME_SFX_GLOBAL = "global\\sfx\\monster";
   static PATH_GAME_SFX_HD     = "hd\\global\\sfx\\monster";
-  static PATH_GAME_SFX_LOCAL  = "global\\sfx\\monster";
+  static PATH_GAME_SFX_LOCAL  = "local\\sfx\\common\\hireables";
   static PATH_GAME_SPRITES    = "hd\\global\\ui\\hireables";
 
   static jsonProperties = {
@@ -120,9 +120,9 @@ class MortyMercenariesMod {
     // - The Jerrick Trap - Morty: I'm telling you, man, you're making a big mistake here. 
     // - Rickfending Your Mort - Morty: Nope. I'm good. 
 
-    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_LOCAL,  FileConstants.PATH_GAME_SFX_GLOBAL, true); // copy <mod folder>\sfx_local  contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local\sfx\common\hireables
+    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_LOCAL,  FileConstants.PATH_GAME_SFX_LOCAL, true); // copy <mod folder>\sfx_local  contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\local\sfx\common\hireables
     D2RMM.copyFile(FileConstants.PATH_MOD_SFX_HD,     FileConstants.PATH_GAME_SFX_HD,     true); // copy <mod folder>\sfx_hd     contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\sfx\monster
-    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_GLOBAL, FileConstants.PATH_GAME_SFX_LOCAL,  true); // copy <mod folder>\sfx_global contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\global\sfx\monster
+    D2RMM.copyFile(FileConstants.PATH_MOD_SFX_GLOBAL, FileConstants.PATH_GAME_SFX_GLOBAL,  true); // copy <mod folder>\sfx_global contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\global\sfx\monster
   }
 
   replaceSubtitles() {
