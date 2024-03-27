@@ -128,11 +128,11 @@ class MortyMercenariesMod {
     let file = D2RMM.readJson(path);
 
     file.forEach(entry => {
-      if (SubtitlesConstants.keysNewEquip.includes(entry.key)) {
+      if (SubtitlesConstants.keysNewEquip.includes(entry[FileConstants.jsonProperties.key])) {
         this.replaceSubtitle(entry, SubtitlesConstants.textNewEquip);
         return;
       }
-      if (SubtitlesConstants.keysPotion.includes(entry.key)) {
+      if (SubtitlesConstants.keysPotion.includes(entry[FileConstants.jsonProperties.key])) {
         this.replaceSubtitle(entry, SubtitlesConstants.textPotion);
         return;
       }
