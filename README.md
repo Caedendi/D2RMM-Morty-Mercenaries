@@ -1,6 +1,6 @@
 # Morty Mercenaries for D2RMM
 
-D2RMM port of the [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373).
+A D2RMM port of the [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373).
 
 Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.
 
@@ -26,6 +26,10 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 ## Changelog
 
+### 1.0.1
+
+- Rearranged settings
+
 ### 1.0.0
 
 - Feature parity with Morty Mercenaries by Caleb & Friends
@@ -50,9 +54,9 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 ## Recommended Mods
 
-Visit [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-Lists#todo) for the list of D2RMM mods that I use, you might like some of 'em! 
+Visit [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-List) for the list of D2RMM mods that I use, you might like some of 'em! 
 
-A list of the other mods I have created can be found [there](https://github.com/Caedendi/D2RMM-Mod-Lists#todo) too, as well as directly on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files).
+A list of the other mods I created/ported can also be found there, as well as directly on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files).
 
 
 ## Credits

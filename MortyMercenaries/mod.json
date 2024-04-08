@@ -3,13 +3,13 @@
   "description": "Renames all mercenaries to Morty, uses \"Evil Morty\" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.",
   "author": "Caedendi, Caleb and Friends",
   "website": "https://www.nexusmods.com/diablo2resurrected/mods/481",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "config": [
     {
-      "id": "shouldRenameMercenary",
+      "id": "shouldReplaceMercenarySfx",
       "type": "checkbox",
-      "name": "Rename Mercenary",
-      "description": "Rename the mercenary to Morty.",
+      "name": "Replace Sound Effects",
+      "description": "Replace the mercenary's sound effects with Morty's voice.",
       "defaultValue": true
     },
     {
@@ -20,10 +20,10 @@
       "defaultValue": true
     },
     {
-      "id": "shouldReplaceMercenarySfx",
+      "id": "shouldRenameMercenary",
       "type": "checkbox",
-      "name": "Replace Sound Effects",
-      "description": "Replace the mercenary's sound effects with Morty's voice.",
+      "name": "Rename Mercenary",
+      "description": "Rename the mercenary to Morty.",
       "defaultValue": true
     },
     {
