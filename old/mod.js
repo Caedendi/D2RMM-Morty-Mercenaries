@@ -1,5 +1,7 @@
 class FileConstants {
   static FILE_EXTENSION_JSON = ".json";
+  static FILE_EXTENSION_MODEL = ".model";
+  static FILE_EXTENSION_TEXTURE = ".texture";
 
   static PATH_LOCAL_LNG_STRINGS = "local\\lng\\strings\\";
   static FILE_VO_JSON           = `${this.PATH_LOCAL_LNG_STRINGS}vo${this.FILE_EXTENSION_JSON}`;
@@ -15,11 +17,11 @@ class FileConstants {
   static PATH_GAME_SFX_LOCAL  = "local\\sfx\\common\\hireables";
   static PATH_GAME_SPRITES    = "hd\\global\\ui\\hireables";
 
-  static FILE_ACT2HIRE_JSON = `hd\\character\\enemy\\act2hire${this.FILE_EXTENSION_JSON}`;
-  static FILE_KAELAN_JSON = `hd\\character\\npc\\act2guard2${this.FILE_EXTENSION_JSON}`;
-  
-  static FILE_ACT2HIRE_STATE_MACHINE_JSON = `hd\\character\\enemy\\act2hire\\act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`;
-  static FILE_KAELAN_STATE_MACHINE_JSON = `hd\\character\\npc\\act2guard2\\act2guard2_state_machine${FileConstants.FILE_EXTENSION_JSON}`;
+  static PATH_DATA_HD                              = `data/hd/`;
+  static PATH_DATA_HD_CHAR_NPC_ACT2GUARD2          = `${this.PATH_DATA_HD}character/npc/act2guard2/`;
+  static PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES = `${this.PATH_DATA_HD_CHAR_NPC_ACT2GUARD2}textures/`;
+  static PATH_DATA_HD_CHAR_COMMON                  = `${this.PATH_DATA_HD}character/common/`;
+  static PATH_DATA_HD_ITEMS_WEAPON                 = `${this.PATH_DATA_HD}items/weapon/`
 
   static jsonProperties = {
       id: "id",
@@ -79,30 +81,49 @@ class ModConstants {
 
   static models = {
     act2hire: {
-      componentRootStateMachine: `data/hd/character/enemy/act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`,
-      sequenceAnimation: {
-        type: "AnimationItem",
-        name: "sequence",
-        filename: `data/hd/character/npc/act2guard2/animation/sequence.animation`,
+      dependencies: {
+        modelPaths: [
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}head_lit${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}head_med${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}larm_lit${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}larm_med${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}legs_lit${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}legs_med${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}rarm_lit${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}rarm_med${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}rhand_glv${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}rhand_spr${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}special1${FILE_EXTENSION_MODEL}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}torso_lit${FILE_EXTENSION_MODEL}`,
+        ],
+        skeletonPath: `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD}skeleton/act2guard2.skeleton`,
+        texturePaths: [
+          `${PATH_DATA_HD_CHAR_COMMON}common_hair2_ALB${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_COMMON}common_hair2_FLOW${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_COMMON}common_hair2_HRT${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_COMMON}common_ktint${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_armor_alb${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_armor_nrm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_armor_orm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_body_alb${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_body_nrm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_body_orm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_body_SSS${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_head_alb${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_head_nrm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_head_orm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_head_SSS${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_sword_alb${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_sword_nrm${FILE_EXTENSION_TEXTURE}`,
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2_TEXTURES}kaelan_sword_orm${FILE_EXTENSION_TEXTURE}`,
+        ],
+        jsonPaths: [
+          `${PATH_DATA_HD_CHAR_NPC_ACT2GUARD2}act2guard2_state_machine${FILE_EXTENSION_JSON}`,
+          `${PATH_DATA_HD_ITEMS_WEAPON}polearm/war_scythe${FILE_EXTENSION_JSON}`,
+          `${PATH_DATA_HD_ITEMS_WEAPON}spear/_monsters/kaelan_spear${FILE_EXTENSION_JSON}`,
+        ]
       },
-      jabSequenceState: {
-        type: "AnimationState",
-        name: "State_sequence",
-        _name: "Jab_Sequence",
-        audioId: "",
-        loopCount: 1,
-        stateId: 14,
-        modeId: 14,
-        skillIndex: 10,
-        stepIndex: 0,
-        animationBindings: {
-            hth: [
-                "sequence"
-            ]
-        },
-        enterEvents: [],
-        exitEvents: []
-      },
+      name: `act2guard2`,
     }
   };
 }
@@ -193,48 +214,10 @@ class MortyMercenariesMod {
   }
 
   replaceModels() {
-    this.replaceAct2Hire();
-    this.replaceAct2HireStateMachine();
-  }
+    // do stuff
 
-  replaceAct2Hire() {
-    let path = FileConstants.FILE_ACT2HIRE_JSON;
-
-    let kaelan = D2RMM.readJson(FileConstants.FILE_KAELAN_JSON);
-    let kaelanCopy = { ...(kaelan) };
-    kaelanCopy.entities
-      .find(entity => entity.name === "entity_root")
-      .components
-      .find(component => component.name === "component_root")
-      .state_machine_filename = ModConstants.models.act2hire.componentRootStateMachine;
-    
-    D2RMM.writeJson(path, kaelanCopy);
-  }
-
-  replaceAct2HireStateMachine() {
-    let path = FileConstants.FILE_ACT2HIRE_STATE_MACHINE_JSON;
-
-    let kaelan = D2RMM.readJson(FileConstants.FILE_KAELAN_STATE_MACHINE_JSON);
-    let kaelanCopy = { ...(kaelan) };
-
-    // insert sequence animation
-    let skill4_i = kaelanCopy.animations.findIndex(animation => animation.name === "skill4");
-    kaelanCopy.animations.splice(skill4_i, 0, ModConstants.models.act2hire.sequenceAnimation);
-
-    // insert jab sequence state
-    let knockback_i = kaelanCopy.states.findIndex(state => state.name === "State_Knockback");
-    kaelanCopy.states.splice(knockback_i, 0, ModConstants.models.act2hire.jabSequenceState);
-
-    // correct state IDs
-    kaelanCopy.states.forEach(state => {
-      if (state.stateId < knockback_i) {
-        return;
-      }
-
-      state.stateId = knockback_i++;
-    });
-
-    D2RMM.writeJson(path, kaelanCopy);
+    // act2hire.json
+    // variantdata = [];
   }
 }
 

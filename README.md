@@ -9,6 +9,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 - [Demos](#demos)
 - [Changelog](#changelog)
+  - [1.0.1](#101)
   - [1.0.0](#100)
 - [How to Install](#how-to-install)
 - [Roadmap](#roadmap)
@@ -25,6 +26,10 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 
 ## Changelog
+
+### 1.1.0
+
+- Added option to use Kaelan as your act 2 desert mercenary
 
 ### 1.0.1
 
@@ -50,6 +55,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 - [x] Feature parity with the original mod
 - [x] Add option for custom mercenary name
 - [x] Find and implement new sound effects for _"I can't use that"_ & _"I can't use that yet"_.
+- [ ] Integrate Merc Kaelan mod
 
 
 ## Recommended Mods

@@ -3,7 +3,7 @@
   "description": "Renames all mercenaries to Morty, uses \"Evil Morty\" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.",
   "author": "Caedendi, Caleb and Friends",
   "website": "https://www.nexusmods.com/diablo2resurrected/mods/481",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "config": [
     {
       "id": "shouldReplaceMercenarySfx",
@@ -32,6 +32,13 @@
       "name": "Mercenary Name",
       "description": "Use a custom name for your Morty. Rename Mercenary must be enabled.",
       "defaultValue": ""
+    },
+    {
+      "id": "shouldUseKaelanModel",
+      "type": "checkbox",
+      "name": "Act 2 Chad Morty",
+      "description": "Changes the act 2 mercenary's appearance to that of Kaelan the palace guard.",
+      "defaultValue": true
     }
   ]
 }
