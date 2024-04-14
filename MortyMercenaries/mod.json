@@ -1,9 +1,9 @@
 {
   "name": "Morty Mercenaries",
-  "description": "Renames all mercenaries to Morty, uses \"Evil Morty\" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.",
+  "description": "Rename all mercenaries to Morty, use Evil Morty portrait sprite, Morty's voice for dying, getting hit, giving gear & giving potions and replace the act 2 merc with Kaelan the palace guard.",
   "author": "Caedendi, Caleb and Friends",
   "website": "https://www.nexusmods.com/diablo2resurrected/mods/481",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "config": [
     {
       "id": "shouldReplaceMercenarySfx",
@@ -23,7 +23,7 @@
       "id": "shouldRenameMercenary",
       "type": "checkbox",
       "name": "Rename Mercenary",
-      "description": "Rename the mercenary to Morty.",
+      "description": "Rename the mercenary to Morty or the custom name below if set.",
       "defaultValue": true
     },
     {
@@ -32,6 +32,53 @@
       "name": "Mercenary Name",
       "description": "Use a custom name for your Morty. Rename Mercenary must be enabled.",
       "defaultValue": ""
+    },
+    {
+      "id": "ChadMortySection",
+      "type": "section",
+      "name": "Act 2 Chad Morty",
+      "defaultExpanded": false
+    },
+    {
+      "id": "shouldUseKaelanModel",
+      "type": "checkbox",
+      "name": "Enable",
+      "description": "Changes the act 2 mercenary's appearance to that of Kaelan the palace guard.",
+      "defaultValue": false
+    },
+    {
+      "id": "shouldModifyScale",
+      "type": "checkbox",
+      "name": "Modify Scale",
+      "description": "Changes Chad Morty's size according to the values set below. This is only a visual change and will not impact gameplay (like hitboxes and weapon range). Game default = 0.9, ssipak1103's Merc Kaelan mod has this set to 0.95.",
+      "defaultValue": false
+    },
+    {
+      "id": "ScaleX",
+      "type": "number",
+      "minValue": 0,
+      "maxValue": 1000,
+      "name": "Scale: X",
+      "description": "Set the mercenary's width.",
+      "defaultValue": 0.95
+    },
+    {
+      "id": "ScaleY",
+      "type": "number",
+      "minValue": 0,
+      "maxValue": 1000,
+      "name": "Scale: Y",
+      "description": "Set the mercenary's height.",
+      "defaultValue": 0.95
+    },
+    {
+      "id": "ScaleZ",
+      "type": "number",
+      "minValue": 0,
+      "maxValue": 1000,
+      "name": "Scale: Z",
+      "description": "Set the mercenary's depth.",
+      "defaultValue": 0.95
     }
   ]
 }
