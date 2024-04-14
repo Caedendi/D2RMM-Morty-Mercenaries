@@ -109,50 +109,22 @@ class ModConstants {
 
 class MortyMercenariesMod {
   build() {
-    if (config.shouldRenameMercenary) {
-      this.renameMercenary();
+    if (config.shouldReplaceMercenarySfx) {
+      this.replaceSfx();
+      this.replaceSubtitles();
     }
 
     if (config.shouldReplaceMercenarySprites) {
       this.replaceSprites();
     }
 
-    if (config.shouldReplaceMercenarySfx) {
-      this.replaceSfx();
-      this.replaceSubtitles();
+    if (config.shouldRenameMercenary) {
+      this.renameMercenary();
     }
 
     if (config.shouldUseKaelanModel) {
       this.replaceModels();
     }
-  }
-
-  renameMercenary() {
-    let path = FileConstants.FILE_MERCENARIES_JSON;
-    let file = D2RMM.readJson(path);
-
-    file.forEach(entry => {
-      let shouldUseCustomName = (config.mercenaryName != null && config.mercenaryName !== "");
-      entry[FileConstants.jsonProperties.enus] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.zhtw] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
-      entry[FileConstants.jsonProperties.dede] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.eses] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.frfr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.itit] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.kokr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.korean;
-      entry[FileConstants.jsonProperties.plpl] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.esmx] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.jajp] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.japanese;
-      entry[FileConstants.jsonProperties.ptbr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
-      entry[FileConstants.jsonProperties.ruru] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.cyrillic;
-      entry[FileConstants.jsonProperties.zhcn] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
-    });
-    
-    D2RMM.writeJson(path, file);
-  }
-
-  replaceSprites() {
-    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES,    FileConstants.PATH_GAME_SPRITES,    true); // copy <mod folder>\sprites    contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
   }
 
   replaceSfx() {
@@ -190,6 +162,34 @@ class MortyMercenariesMod {
       entry[FileConstants.jsonProperties.ruru] = newText;
       entry[FileConstants.jsonProperties.zhcn] = newText;
     }
+  }
+
+  replaceSprites() {
+    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES,    FileConstants.PATH_GAME_SPRITES,    true); // copy <mod folder>\sprites    contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
+  }
+
+  renameMercenary() {
+    let path = FileConstants.FILE_MERCENARIES_JSON;
+    let file = D2RMM.readJson(path);
+
+    file.forEach(entry => {
+      let shouldUseCustomName = (config.mercenaryName != null && config.mercenaryName !== "");
+      entry[FileConstants.jsonProperties.enus] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.zhtw] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
+      entry[FileConstants.jsonProperties.dede] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.eses] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.frfr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.itit] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.kokr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.korean;
+      entry[FileConstants.jsonProperties.plpl] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.esmx] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.jajp] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.japanese;
+      entry[FileConstants.jsonProperties.ptbr] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.latin;
+      entry[FileConstants.jsonProperties.ruru] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.cyrillic;
+      entry[FileConstants.jsonProperties.zhcn] = shouldUseCustomName ? config.mercenaryName : ModConstants.mercNames.chinese;
+    });
+    
+    D2RMM.writeJson(path, file);
   }
 
   replaceModels() {
