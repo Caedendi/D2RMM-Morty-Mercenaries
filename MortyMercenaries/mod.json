@@ -1,6 +1,6 @@
 {
   "name": "Morty Mercenaries",
-  "description": "Renames all mercenaries to Morty, uses \"Evil Morty\" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.",
+  "description": "Rename all mercenaries to Morty, use Evil Morty portrait sprite, Morty's voice for dying, getting hit, giving gear & giving potions and replace the act 2 merc with Kaelan the palace guard.",
   "author": "Caedendi, Caleb and Friends",
   "website": "https://www.nexusmods.com/diablo2resurrected/mods/481",
   "version": "1.1.0",

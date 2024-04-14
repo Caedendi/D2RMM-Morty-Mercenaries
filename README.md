@@ -2,7 +2,7 @@
 
 A D2RMM port of [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) and [Merc Kaelan](https://www.nexusmods.com/diablo2resurrected/mods/493) by [ssipak1103](https://www.nexusmods.com/diablo2resurrected/users/86553018).
 
-Options to rename all mercenaries to Morty, use "Evil Morty" icon (sprite), Morty's voice for dying, getting hit, giving gear & giving potions and to replace the act 2 merc with Kaelan the palace guard.
+Options to rename all mercenaries to Morty, use Evil Morty portrait sprite, Morty's voice for dying, getting hit, giving gear & giving potions and replace the act 2 merc with Kaelan the palace guard.
 
 
 ## Table of Contents

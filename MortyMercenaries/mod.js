@@ -52,7 +52,7 @@ class ReferenceConstants {
 
   static act2hireStateMachine = `${this.PATH_DATA_HD_CHAR}enemy/act2hire/act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`
 }
-  
+
 class ModConstants {
   static mercNames = {
     latin:    "Morty",
