@@ -1,5 +1,6 @@
 class FileConstants {
-  static FILE_EXTENSION_JSON = ".json";
+  static FILE_EXTENSION_JSON      = ".json";
+  static FILE_EXTENSION_ANIMATION = ".animation";
 
   static PATH_LOCAL_LNG_STRINGS = "local\\lng\\strings\\";
   static FILE_VO_JSON           = `${this.PATH_LOCAL_LNG_STRINGS}vo${this.FILE_EXTENSION_JSON}`;
@@ -18,8 +19,8 @@ class FileConstants {
   static FILE_ACT2HIRE_JSON = `hd\\character\\enemy\\act2hire${this.FILE_EXTENSION_JSON}`;
   static FILE_KAELAN_JSON = `hd\\character\\npc\\act2guard2${this.FILE_EXTENSION_JSON}`;
   
-  static FILE_ACT2HIRE_STATE_MACHINE_JSON = `hd\\character\\enemy\\act2hire\\act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`;
-  static FILE_KAELAN_STATE_MACHINE_JSON = `hd\\character\\npc\\act2guard2\\act2guard2_state_machine${FileConstants.FILE_EXTENSION_JSON}`;
+  static FILE_ACT2HIRE_STATE_MACHINE_JSON = `hd\\character\\enemy\\act2hire\\act2hire_state_machine${this.FILE_EXTENSION_JSON}`;
+  static FILE_KAELAN_STATE_MACHINE_JSON   = `hd\\character\\npc\\act2guard2\\act2guard2_state_machine${this.FILE_EXTENSION_JSON}`;
 
   static jsonProperties = {
       id: "id",
@@ -38,6 +39,18 @@ class FileConstants {
     ruru: "ruRU",
     zhcn: "zhCN",
   };
+}
+
+class ReferenceConstants {
+  static PATH_DATA_HD_CHAR = `data/hd/character/`;
+  static PATH_DATA_HD_CHAR_NPC_A2GUARD = `${this.PATH_DATA_HD_CHAR}npc/act2guard2/`;
+  static PATH_ACT2GUARD2_ANIMATION = `${this.PATH_DATA_HD_CHAR_NPC_A2GUARD}animation/`;
+
+  static walkAnimation     = `${this.PATH_ACT2GUARD2_ANIMATION}walk${FileConstants.FILE_EXTENSION_ANIMATION}`;
+  static runAnimation      = `${this.PATH_ACT2GUARD2_ANIMATION}run${FileConstants.FILE_EXTENSION_ANIMATION}`;
+  static sequenceAnimation = `${this.PATH_ACT2GUARD2_ANIMATION}sequence${FileConstants.FILE_EXTENSION_ANIMATION}`;
+
+  static act2hireStateMachine = `${this.PATH_DATA_HD_CHAR}enemy/act2hire/act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`
 }
   
 class ModConstants {
@@ -79,11 +92,11 @@ class ModConstants {
 
   static models = {
     act2hire: {
-      componentRootStateMachine: `data/hd/character/enemy/act2hire_state_machine${FileConstants.FILE_EXTENSION_JSON}`,
+      componentRootStateMachine: ReferenceConstants.act2hireStateMachine,
       sequenceAnimation: {
         type: "AnimationItem",
         name: "sequence",
-        filename: `data/hd/character/npc/act2guard2/animation/sequence.animation`,
+        filename: ReferenceConstants.sequenceAnimation,
       },
       jabSequenceState: {
         type: "AnimationState",
@@ -91,7 +104,7 @@ class ModConstants {
         _name: "Jab_Sequence",
         audioId: "",
         loopCount: 1,
-        stateId: 14,
+        stateId: 0,
         modeId: 14,
         skillIndex: 10,
         stepIndex: 0,
@@ -103,6 +116,8 @@ class ModConstants {
         enterEvents: [],
         exitEvents: []
       },
+      runAnimation: ReferenceConstants.walkAnimation,
+      walkAnimation: ReferenceConstants.runAnimation,
     }
   };
 }
@@ -124,6 +139,10 @@ class MortyMercenariesMod {
 
     if (config.shouldUseKaelanModel) {
       this.replaceModels();
+
+      if (config.shouldModifyScale) {
+        this.modifyScale();
+      }
     }
   }
 
@@ -138,8 +157,8 @@ class MortyMercenariesMod {
     let file = D2RMM.readJson(path);
 
     file.forEach(entry => {
-      this.replaceSubtitle(entry, ModConstants.subtitles.keysPotion, ModConstants.subtitles.textPotion);       // replace "Thanks." / "Thank you."     with Morty's "Thanks."
-      this.replaceSubtitle(entry, ModConstants.subtitles.keysNewEquip, ModConstants.subtitles.textNewEquip);   // replace "I'll put that to good use." with Morty's "Thanks, Rick."
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysPotion,    ModConstants.subtitles.textPotion);    // replace "Thanks." / "Thank you."     with Morty's "Thanks."
+      this.replaceSubtitle(entry, ModConstants.subtitles.keysNewEquip,  ModConstants.subtitles.textNewEquip);  // replace "I'll put that to good use." with Morty's "Thanks, Rick."
       this.replaceSubtitle(entry, ModConstants.subtitles.keysCantEquip, ModConstants.subtitles.textCantEquip); // replace "I can't use that (yet)."    with Morty's "Oh, Rick, something's not right."
     });
 
@@ -165,7 +184,7 @@ class MortyMercenariesMod {
   }
 
   replaceSprites() {
-    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES,    FileConstants.PATH_GAME_SPRITES,    true); // copy <mod folder>\sprites    contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
+    D2RMM.copyFile(FileConstants.PATH_MOD_SPRITES, FileConstants.PATH_GAME_SPRITES, true); // copy <mod folder>\sprites contents to <diablo 2 folder>\mods\<modname>\<modname>.mpq\data\hd\global\ui\hireables
   }
 
   renameMercenary() {
@@ -199,9 +218,12 @@ class MortyMercenariesMod {
 
   replaceAct2Hire() {
     let path = FileConstants.FILE_ACT2HIRE_JSON;
+    let temp = D2RMM.readJson(path); // apparently we need to read a file first if we want to write to it, even if we don't use its contents
 
     let kaelan = D2RMM.readJson(FileConstants.FILE_KAELAN_JSON);
     let kaelanCopy = { ...(kaelan) };
+
+    // set state machine path
     kaelanCopy.entities
       .find(entity => entity.name === "entity_root")
       .components
@@ -213,28 +235,54 @@ class MortyMercenariesMod {
 
   replaceAct2HireStateMachine() {
     let path = FileConstants.FILE_ACT2HIRE_STATE_MACHINE_JSON;
+    let temp = D2RMM.readJson(path); // apparently we need to read a file first if we want to write to it, even if we don't use its contents
 
     let kaelan = D2RMM.readJson(FileConstants.FILE_KAELAN_STATE_MACHINE_JSON);
     let kaelanCopy = { ...(kaelan) };
 
     // insert sequence animation
-    let skill4_i = kaelanCopy.animations.findIndex(animation => animation.name === "skill4");
-    kaelanCopy.animations.splice(skill4_i, 0, ModConstants.models.act2hire.sequenceAnimation);
+    let newAnimationId = kaelanCopy.animations.findIndex(animation => animation.name === "skill4") + 1;
+    kaelanCopy.animations.splice(newAnimationId, 0, ModConstants.models.act2hire.sequenceAnimation);
 
     // insert jab sequence state
-    let knockback_i = kaelanCopy.states.findIndex(state => state.name === "State_Knockback");
-    kaelanCopy.states.splice(knockback_i, 0, ModConstants.models.act2hire.jabSequenceState);
+    let newStateId = kaelanCopy.states.findIndex(state => state.name === "State_Knockback") + 1;
+    kaelanCopy.states.splice(newStateId, 0, ModConstants.models.act2hire.jabSequenceState);
+    kaelanCopy.states[newStateId].stateId = newStateId;
+    newStateId++;
 
     // correct state IDs
-    kaelanCopy.states.forEach(state => {
-      if (state.stateId < knockback_i) {
-        return;
-      }
+    for (let i = newStateId; i < kaelanCopy.states.length; i++) {
+      kaelanCopy.states[i].stateId = i;
+    }
 
-      state.stateId = knockback_i++;
-    });
+    // switch run/walk animations
+    this.replaceAnimationFilename(kaelanCopy, "walk", ModConstants.models.act2hire.runAnimation);
+    this.replaceAnimationFilename(kaelanCopy, "run", ModConstants.models.act2hire.walkAnimation);
 
     D2RMM.writeJson(path, kaelanCopy);
+  }
+
+  replaceAnimationFilename(file, animationName, newFilename) {
+    file.animations
+      .find(animation => animation.name === animationName)
+      .filename = newFilename;
+  }
+
+  modifyScale() {
+    let path = FileConstants.FILE_ACT2HIRE_JSON;
+    let file = D2RMM.readJson(path);
+
+    file.entities
+      .find(entity => entity.name === "entity_root")
+      .components
+      .find(component => component.name === "entity_root_TransformDefinition")
+      .scale = { 
+        x: config.ScaleX,
+        y: config.ScaleY,
+        z: config.ScaleZ,
+      };
+
+    D2RMM.writeJson(path, file);
   }
 }
 

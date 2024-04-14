@@ -1,14 +1,15 @@
 # Morty Mercenaries for D2RMM
 
-A D2RMM port of the [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373).
+A D2RMM port of [Morty Mercenaries](https://www.nexusmods.com/diablo2resurrected/mods/476) mod by [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) and [Merc Kaelan](https://www.nexusmods.com/diablo2resurrected/mods/493) by [ssipak1103](https://www.nexusmods.com/diablo2resurrected/users/86553018).
 
-Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's voice for dying, getting hit, giving gear & giving potions.
+Options to rename all mercenaries to Morty, use "Evil Morty" icon (sprite), Morty's voice for dying, getting hit, giving gear & giving potions and to replace the act 2 merc with Kaelan the palace guard.
 
 
 ## Table of Contents
 
 - [Demos](#demos)
 - [Changelog](#changelog)
+  - [1.1.0](#110)
   - [1.0.1](#101)
   - [1.0.0](#100)
 - [How to Install](#how-to-install)
@@ -29,7 +30,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 
 ### 1.1.0
 
-- Added option to use Kaelan as your act 2 desert mercenary
+- Added option to use palace guard Kaelan as your act 2 desert mercenary, with optional size scaling
 
 ### 1.0.1
 
@@ -55,7 +56,7 @@ Renames all mercenaries to Morty, uses "Evil Morty" icon (sprite) & uses Morty's
 - [x] Feature parity with the original mod
 - [x] Add option for custom mercenary name
 - [x] Find and implement new sound effects for _"I can't use that"_ & _"I can't use that yet"_.
-- [ ] Integrate Merc Kaelan mod
+- [x] Integrate Merc Kaelan mod
 
 
 ## Recommended Mods
@@ -68,6 +69,7 @@ A list of the other mods I created/ported can also be found there, as well as di
 ## Credits
 
 - [Caleb & Friends](https://www.nexusmods.com/diablo2resurrected/users/171503373) ([Discord](https://discord.gg/X8RNYUTcdR)) for creating [the original mod](https://www.nexusmods.com/diablo2resurrected/mods/476) and ripping the new sound effect
+- [ssipak1103](https://www.nexusmods.com/diablo2resurrected/users/86553018) for creating the [Merc Kaelan](https://www.nexusmods.com/diablo2resurrected/mods/493) mod
 - [olegbl](https://github.com/olegbl) for creating [D2RMM](https://www.nexusmods.com/diablo2resurrected/mods/169)
 
 
