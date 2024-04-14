@@ -61,9 +61,9 @@ Options to rename all mercenaries to Morty, use Evil Morty portrait sprite, Mort
 
 ## Recommended Mods
 
-Visit [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-List) for the list of D2RMM mods that I use, you might like some of 'em! 
+Check out [this GitHub page](https://github.com/Caedendi/D2RMM-Mod-List) for the list of D2RMM mods that I use, you might like some of 'em! 
 
-A list of the other mods I created/ported can also be found there, as well as directly on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files).
+A list of the other mods I have created/ported can also be found there, as well as directly on [my Nexus Mods page](https://www.nexusmods.com/diablo2resurrected/users/179695179?tab=user+files).
 
 
 ## Credits
