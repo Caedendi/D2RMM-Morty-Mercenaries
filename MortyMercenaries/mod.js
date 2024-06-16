@@ -124,6 +124,11 @@ class ModConstants {
 
 class MortyMercenariesMod {
   build() {
+    if (D2RMM.getVersion == null || D2RMM.getVersion() < 1.6) {
+      D2RMM.error("Requires D2RMM version 1.6.0 or higher.");
+      return;
+    }
+    
     if (config.shouldReplaceMercenarySfx) {
       this.replaceSfx();
       this.replaceSubtitles();
